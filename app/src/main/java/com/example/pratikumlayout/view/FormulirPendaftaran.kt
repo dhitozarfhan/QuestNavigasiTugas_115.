@@ -92,3 +92,101 @@ fun FormDataDiriStyled(
                         )
                     }
 
+                    // Form Input
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp),
+                        horizontalAlignment = Alignment.Start,
+                        verticalArrangement = Arrangement.spacedBy(10.dp)
+                    ) {
+                        Text(text = "NAMA LENGKAP", color = labelColorOnWhite)
+                        OutlinedTextField(
+                            value = namaInput,
+                            onValueChange = { namaInput = it },
+                            singleLine = true,
+                            modifier = Modifier.fillMaxWidth(),
+                            placeholder = { Text("Isi nama lengkapnya") }
+                        )
+
+                        Text(text = "JENIS KELAMIN", color = labelColorOnWhite)
+                        Column(verticalArrangement = Arrangement.spacedBy(1.dp)) {
+                            genders.forEach { gender ->
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    modifier = Modifier
+                                        .selectable(
+                                            selected = (genderInput == gender),
+                                            onClick = { genderInput = gender }
+                                        )
+                                        .padding(vertical = 1.dp)
+                                ) {
+                                    RadioButton(
+                                        selected = (genderInput == gender),
+                                        onClick = { genderInput = gender }
+                                    )
+                                    Text(text = gender, modifier = Modifier.padding(start = 8.dp))
+                                }
+                            }
+                        }
+
+                        Text(text = "STATUS PERKAWINAN", color = labelColorOnWhite)
+                        Column(verticalArrangement = Arrangement.spacedBy(1.dp)) {
+                            statuses.forEach { status ->
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    modifier = Modifier
+                                        .selectable(
+                                            selected = (statusInput == status),
+                                            onClick = { statusInput = status }
+                                        )
+                                        .padding(vertical = 1.dp)
+                                ) {
+                                    RadioButton(
+                                        selected = (statusInput == status),
+                                        onClick = { statusInput = status }
+                                    )
+                                    Text(text = status, modifier = Modifier.padding(start = 8.dp))
+                                }
+                            }
+                        }
+
+                        Text(text = "ALAMAT", color = labelColorOnWhite)
+                        OutlinedTextField(
+                            value = alamatInput,
+                            onValueChange = { alamatInput = it },
+                            singleLine = true,
+                            modifier = Modifier.fillMaxWidth(),
+                            placeholder = { Text("Alamat") }
+                        )
+
+                        Spacer(modifier = Modifier.height(6.dp))
+
+                        Button(
+                            onClick = {
+                                submittedNama = namaInput.trim()
+                                submittedGender = genderInput
+                                submittedStatus = statusInput
+                                submittedAlamat = alamatInput.trim()
+                                isSubmitted = true
+                            },
+                            enabled = namaInput.isNotBlank() && alamatInput.isNotBlank(),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(48.dp)
+                                .clip(RoundedCornerShape(24.dp)),
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = Color.Black,      // 🔥 Tombol hitam
+                                contentColor = Color.White,        // 🔥 Teks tetap putih
+                                disabledContainerColor = Color.DarkGray,  // Opsional: warna saat tombol nonaktif
+                                disabledContentColor = Color.LightGray    // Opsional: teks saat tombol nonaktif
+                            )
+                        ) {
+                            Text(text = "Submit", fontSize = 16.sp, fontWeight = FontWeight.SemiBold)
+                        }
+                        Spacer(modifier = Modifier.height(8.dp))
+
+
+        }
+    }
+}

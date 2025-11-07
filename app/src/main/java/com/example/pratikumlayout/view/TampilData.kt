@@ -20,3 +20,49 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+@Composable
+fun TampilData(
+    onHomeClick: () -> Unit,
+    onFormClick: () -> Unit
+) {
+    val dataPeserta = listOf(
+        "Nama Lengkap" to "Erindhito",
+        "Jenis Kelamin" to "Laki-Laki",
+        "Status Perkawinan" to "Lajang",
+        "Alamat" to "Bantul"
+    )
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(
+                brush = Brush.verticalGradient(
+                    colors = listOf(
+                        Color(0xFFCE93D8), // ungu muda
+                        Color.White
+                    )
+                )
+            )
+            .padding(20.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        // Judul
+        Text(
+            text = "List Daftar Peserta",
+            fontSize = 26.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color.White,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 16.dp)
+                .background(Color(0xFFBA68C8), RoundedCornerShape(12.dp))
+                .padding(vertical = 12.dp)
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+
+
+    }
+}

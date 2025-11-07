@@ -21,3 +21,9 @@ import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
 
 
+@Composable
+fun FormDataDiriStyled(
+    modifier: Modifier = Modifier,
+    onBackClick: () -> Unit
+) {
+    }

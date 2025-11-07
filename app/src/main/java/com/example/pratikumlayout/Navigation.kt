@@ -32,50 +32,5 @@ fun DataApp(
             startDestination = Navigation.Welcome.name,
             modifier = Modifier.padding(innerPadding)
         ) {
-            //  Halaman 1: Welcome Screen
-            composable(route = Navigation.Welcome.name) {
-                WelcomeScreen(
-                    onSubmitClick = {
-                        // Dari Welcome → ke TampilData
-                        navController.navigate(Navigation.Detail.name)
-                    }
-                )
-            }
-            //  Halaman 2: Tampil Data
-            composable(route = Navigation.Detail.name) {
-                TampilData(
-                    onHomeClick = {
-                        // Tombol kembali ke Welcome
-                        navController.navigate(Navigation.Welcome.name) {
-                            popUpTo(Navigation.Welcome.name) { inclusive = true }
-                        }
-                    },
-                    onFormClick = {
-                        // Dari TampilData → ke Formulir Pendaftaran
-                        navController.navigate(Navigation.Formulir.name)
-                    }
-                )
-            }
-            composable(route = Navigation.Formulir.name) {
-                FormDataDiriStyled(
-                    onBackClick = {
-                        navController.navigate(Navigation.Detail.name) {
-                            popUpTo(Navigation.Welcome.name)
-                        }
-                    }
-                )
-            }
-            }
-        }
-}
 
-@Composable
-fun TampilData(onHomeClick: () -> Unit, onFormClick: () -> Unit) {
-    TODO("Not yet implemented")
-}
-
-@Composable
-fun FormDataDiriStyled(onBackClick: () -> Unit) {
-    TODO("Not yet implemented")
-}
 

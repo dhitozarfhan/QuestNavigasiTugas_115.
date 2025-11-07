@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">pratikumlayout</string>
     <string name="submit">Submit</string>
-    <string name="beranda">Beranda</string>
+    <string name="beranda">beranda</string>
     <string name="formulir_pendaftaran">Formulir Pendaftaran</string>
     <string name="nama_lengkap">NAMA LENGKAP</string>
     <string name="jenis_kelamin">JENIS KELAMIN</string>

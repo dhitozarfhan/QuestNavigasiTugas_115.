@@ -1,0 +1,81 @@
+package com.example.pratikumlayout
+
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.pratikumlayout.view.FormDataDiriStyled
+import com.example.pratikumlayout.view.TampilData
+import com.example.pratikumlayout.view.WelcomeScreen
+
+
+enum class Navigation {
+    Welcome,
+    Detail,
+    Formulir
+}
+
+
+//  Fungsi utama untuk navigasi antar layar
+@Composable
+fun DataApp(
+    navController: NavHostController = rememberNavController(),
+    modifier: Modifier = Modifier
+) {
+    Scaffold { innerPadding ->
+        NavHost(
+            navController = navController,
+            startDestination = Navigation.Welcome.name,
+            modifier = Modifier.padding(innerPadding)
+        ) {
+            //  Halaman 1: Welcome Screen
+            composable(route = Navigation.Welcome.name) {
+                WelcomeScreen(
+                    onSubmitClick = {
+                        // Dari Welcome → ke TampilData
+                        navController.navigate(Navigation.Detail.name)
+                    }
+                )
+            }
+            //  Halaman 2: Tampil Data
+            composable(route = Navigation.Detail.name) {
+                TampilData(
+                    onHomeClick = {
+                        // Tombol kembali ke Welcome
+                        navController.navigate(Navigation.Welcome.name) {
+                            popUpTo(Navigation.Welcome.name) { inclusive = true }
+                        }
+                    },
+                    onFormClick = {
+                        // Dari TampilData → ke Formulir Pendaftaran
+                        navController.navigate(Navigation.Formulir.name)
+                    }
+                )
+            }
+            composable(route = Navigation.Formulir.name) {
+                FormDataDiriStyled(
+                    onBackClick = {
+                        navController.navigate(Navigation.Detail.name) {
+                            popUpTo(Navigation.Welcome.name)
+                        }
+                    }
+                )
+            }
+            }
+        }
+}
+
+@Composable
+fun TampilData(onHomeClick: () -> Unit, onFormClick: () -> Unit) {
+    TODO("Not yet implemented")
+}
+
+@Composable
+fun FormDataDiriStyled(onBackClick: () -> Unit) {
+    TODO("Not yet implemented")
+}
+

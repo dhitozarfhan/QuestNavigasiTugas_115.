@@ -41,7 +41,7 @@ fun DataApp(
                     }
                 )
             }
-            //  alaman 2: Tampil DataH
+            //  Halaman 2: Tampil Data
             composable(route = Navigation.Detail.name) {
                 TampilData(
                     onHomeClick = {
@@ -69,5 +69,13 @@ fun DataApp(
         }
 }
 
+@Composable
+fun TampilData(onHomeClick: () -> Unit, onFormClick: () -> Unit) {
+    TODO("Not yet implemented")
+}
 
+@Composable
+fun FormDataDiriStyled(onBackClick: () -> Unit) {
+    TODO("Not yet implemented")
+}
 

@@ -4,7 +4,7 @@
     <string name="beranda">beranda</string>
     <string name="formulir_pendaftaran">Formulir Pendaftaran</string>
     <string name="nama_lengkap">NAMA LENGKAP</string>
-    <string name="jenis_kelamin">JENIS KELAMIN</string>
+    <string name="jenis_Kelamin">JENIS KELAMIN</string>
     <string name="jenis_perkawinan">STATUS PERKAWINAN</string>
     <string name="alamat">ALAMAT</string>
     <string name="tampil">List Daftar Peserta</string>
